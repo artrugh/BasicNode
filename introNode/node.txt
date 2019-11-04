@@ -1,0 +1,43 @@
+What is Node?
+
+v8 -- takes JS code and compiles it to much faster machine code.
+Managed by Google and is used in Chrombrowser.
+
+Benefits of backend JS -
+    Not learn a second or third language.
+    Consistency of code base.
+
+runtime - Browser is a runtime. A place where the code is executed.
+
+asynchronous, non-blocking - Multiple users can make requests simultaneously.
+
+event-driven -- driven by events. Event handler + callback.
+
+scalable - works just as well with 10 as 100000 people or files.
+Easy to maintain and grow or build an application.
+
+!What is Node?
+
+-- It is NOT a FRAMEWORK
+-- It is NOT EXPRESS
+
+What is Node used for?
+
+-- Backend.
+-- Chat apps.
+-- Social network.
+-- microservices (ex. ONLINESHOP: search function, payment, shopping cart, authentification).
+-- CRUD apps - create, read, update, delete.
+-- creating servers.
+
+NPM
+
+-- validating objects, creating servers.
+-- basically we do not have to spend our time writing utility functions that already exist
+-- Difference between Native and Host Objects
+    a. Native - (global) - Date, Math, parseInt, arrayMethods
+    b. Host - (assuming enviroment) - window, querySelectorAll, document
+
+------------------------------------------------------------------------------------------------
+
+Process Object - similar to document in browser

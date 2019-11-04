@@ -1,0 +1,131 @@
+// const URL = "https://od-api.oxforddictionaries.com/api/v2"
+// const key = "1c448d46";
+
+// // /api/v2/search/translations/{source_lang_search}/{target_lang_search}:
+// 
+
+// const options = {
+//   host: 'od-api.oxforddictionaries.com',
+//   port: '443',
+//   path: '/api/v2/entries/en-gb/' + wordId + '?fields=' + fields + '&strictMatch=' + strictMatch,
+//   method: "get",
+//   headers: {
+//     'app_id': app_id,
+//     'app_key': app_key
+//   }
+// };
+
+// // OR
+
+// const url = axios.create({
+//   host: 'od-api.oxforddictionaries.com',
+//   port: '443',
+//   path: '/api/v2/entries/en-gb/' + wordId + '?fields=' + fields + '&strictMatch=' + strictMatch,
+//   method: "GET",
+//   headers: {
+//     app_id: app_id,
+//     app_key: app_key
+//   }
+// });
+
+// axios
+//   .get(url)
+//   .then(res => {
+//     console.log(res);
+//     //console.log(res;
+//   })
+//   .catch(error => {
+//     console.error(error);
+//   });
+
+// // DOESN'T WORK // //
+// The "url" argument must be of type string
+
+// axios({
+//   host: 'od-api.oxforddictionaries.com',
+//   port: '443',
+//   path: '/api/v2/entries/en-gb/' + wordId + '?fields=' + fields + '&strictMatch=' + strictMatch,
+//   method: "get",
+//   headers: {
+//     app_id: app_id,
+//     app_key: app_key
+//   }
+// })
+//   .then(function (response) {
+//     console.log(response);
+
+//   });
+
+
+// http.get(options, (resp) => {
+//     let body = '';
+//     resp.on('data', (d) => {
+//         body += d;
+//     });
+//     resp.on('end', () => {
+//         let parsed = JSON.stringify(body);
+
+//         console.log(parsed);
+//     });
+// });
+
+
+// // DOESN'T WORK // //
+// // options.header
+
+// axios
+//   .get(options.path, options.header)
+//   .then(res => {
+//     console.log(res);
+//     //console.log(res;
+//   })
+//   .catch(error => {
+//     console.error(error);
+//   });
+
+
+// // DOESN'T WORK // //
+// // params
+
+// axios
+//   .get(options.path, {
+//     params: {
+//       app_id: app_id,
+//       app_key: app_key
+//     }})
+//   .then(res => {
+//     console.log(res);
+//     //console.log(res);
+//   })
+//   .catch(error => {
+//     console.error(error);
+//   });
+
+// // DOESN'T WORK // //
+// // ASYNC // //
+
+// async function getUser() {
+//   try {
+//     const response = await axios.get(option.path, option.header);
+//     console.log(response);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+
+
+// // DOESN'T WORK // //
+
+
+// axios
+//   .get(options.path, {
+//     app_id: app_id,
+//     app_key: app_key
+//   })
+//   .then(res => {
+//     console.log(res);
+//     //console.log(res);
+//   })
+//   .catch(error => {
+//     console.error(error);
+//   });
