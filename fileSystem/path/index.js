@@ -24,4 +24,4 @@ const aPath = path.join("Document", "x", "node", "App");
 // Parse a path into an object
 
 const parsedObj = path.parse("Documents/x/node/path-fs/index.js");
-//console.log(parsedObj);
+console.log(parsedObj);

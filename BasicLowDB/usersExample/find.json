@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "name": "Sylvia",
+      "lastVisit": "2019-11-05T10:43:16.597Z",
+      "visits": 5
+    },
+    {
+      "name": "Kohei",
+      "lastVisit": "2019-11-05T10:43:16.597Z",
+      "visits": 5
+    },
+    {
+      "name": "Rufus",
+      "lastVisit": "2019-11-05T10:43:16.598Z",
+      "visits": 5
+    },
+    {
+      "name": "Sylvia",
+      "lastVisit": "2019-11-05T10:44:51.163Z",
+      "visits": 5
+    },
+    {
+      "name": "Kohei",
+      "lastVisit": "2019-11-05T10:44:51.164Z",
+      "visits": 5
+    },
+    {
+      "name": "Rufus",
+      "lastVisit": "2019-11-05T10:44:51.165Z",
+      "visits": 5
+    }
+  ]
+}

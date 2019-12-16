@@ -94,7 +94,7 @@ const blah = true;
 //         resolve("Promise 3 is resolved")
 //     }, 2000);
 
-//})
+// })
 
 // promise1
 //     .then(data => {
@@ -146,7 +146,7 @@ const blah = true;
 
 // const promise3 = new Promise((resolve, reject) => {
 //     setTimeout(() => {
-//         resolve("Promise 2 is resolved!")
+//         resolve("Promise 3 is resolved!")
 //     }, 500);
 // })
 
@@ -161,70 +161,73 @@ const blah = true;
 
 // ASYNC - AWAIT
 
-const who = () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("Count Dracula");
-            reject(error => console.log("error"));
-        }, 4000);
-    });
-};
+// const who = () => {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("Count Dracula");
+//             reject(error => console.log("error"));
+//         }, 4000);
+//     });
+// };
 
-const what = () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("lurks");
-            reject(error => console.log("error"));
-        }, 000)
-    });
-};
+// const what = () => {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("lurks");
+//             reject(error => console.log("error"));
+//         }, 000)
+//     });
+// };
 
-const where = () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("in the shadows.");
-            reject(error => console.log("error"));
-        }, 000)
-    });
-};
+// const where = () => {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("in the shadows.");
+//             reject(error => console.log("error"));
+//         }, 000)
+//     });
+// };
 
+// const msg = async () => {
+//     const a = await who();
+//     const b = await what();
+//     const c = await where();
 
-const msg = async () => {
-    const a = await who();
-    const b = await what();
-    const c = await where();
+//     console.log(a, b, c);
 
-    console.log(a, b, c);
+// };
 
-};
+// msg();
 
-//msg();
+//no try it without await, what the change
+// it console inmediately a, b and c without waiting <Pending/>
+
+// // // -------- // // // // // // -------- // // //
 
 // // NODE FETCH // //
 
-const fetch = require("node-fetch");
+// const fetch = require("node-fetch");
 
-const fetchUsers = async endpoint => {
-    try {
-        const res = await fetch(endpoint);
-        let data = await res.json();
-        data = data.map(user => user.name);
-        console.log(data)
-    } catch {
-        console.log(new Error("NONE working"));
-        return new Error("It's all gone wrong ...");
-    }
+// const fetchUsers = async endpoint => {
+//     try {
+//         const res = await fetch(endpoint);
+//         let data = await res.json();
+//         data = data.map(user => user.name);
+//         console.log(data)
+//     } catch {
+//         console.log(new Error("NONE working"));
+//         return new Error("It's all gone wrong ...");
+//     }
+// };
 
-};
+// fetchUsers("https://jsonplaceholder.typicode.com/users");
 
-//fetchUsers("https://jsonplaceholder.typicode.com/users");
+// // // PROMISIFY // //
 
-// // PROMISIFY // //
+// // It converts a callback - based function to a Promise - based one
 
-// It converts a callback - based function to a Promise - based one
-
-const fs = require("fs");
-const data = "data.txt";
+// const fs = require("fs");
+// const data = "data.txt";
 
 // fs.readFile(data, "utf8", (data, err) => {
 //     if (data) {
@@ -237,60 +240,120 @@ const data = "data.txt";
 // });
 
 
-//  WITH PROMISIFY
+// //  WITH PROMISIFY
 
-const { promisify } = require("util")
-const myReadFileAsync = promisify(fs.readFile);
+// fs = require("fs");
+// const data = "data.txt";
+// const { promisify } = require("util")
+// const myReadFileAsync = promisify(fs.readFile);
 
 // myReadFileAsync(data, "utf8")
 //     .then(data => { console.log(data); })
 //     .catch(err => console.log(new Error(err)));
 
-// // AXIOS // //
-// fetch an API with axios
-const axios = require("axios");
+// // // AXIOS // //
+// // fetch an API with axios
+// const axios = require("axios");
 
-// const baseURL ="https://official-joke-api.appspot.com/jokes/random";
+// // const baseURL ="https://official-joke-api.appspot.com/jokes/random";
 
-// axios.get(baseURL)
-// .then(res => {
-//     let joke = res.data;
-//     console.log(joke.setup);
-//     console.log(joke.punchline);
-// })
-
-
-const url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
-const startPointURL = `${url}&date=2017-04-29`;
-const endPointURL = `${url}&date=2017-10-03`;
+// // axios.get(baseURL)
+// // .then(res => {
+// //     let joke = res.data;
+// //     console.log(joke.setup);
+// //     console.log(joke.punchline);
+// // })
 
 
+// const url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
+// const startPointURL = `${url}&date=2017-04-29`;
+// const endPointURL = `${url}&date=2017-10-03`;
+
+
+
+// // axios
+// //     .get(url)
+// //     .then(res => {
+// //         console.log(res.data.url);
+// //         console.log(res.data.explanation);
+// //     })
+// //     .catch(error => {
+// //         console.error(error);
+// //     });
+
+// // // AXIOS.all() // //
 
 // axios
-//     .get(url)
-//     .then(res => {
-//         console.log(res.data.url);
-//         console.log(res.data.explanation);
-//     })
+//     .all([
+//         axios.get(startPointURL),
+//         axios.get(endPointURL)
+//     ])
+//     .then(
+//         axios.spread((res1, res2) => {
+//             console.log(res1.data.url);
+//             console.log(res2.data.url);
+//         })
+//     )
 //     .catch(error => {
-//         console.error(error);
+//         console.error(error)
 //     });
 
-// // AXIOS.all() // //
+// // HTTPS module
 
-axios
-    .all([
-        axios.get(startPointURL),
-        axios.get(endPointURL)
-    ])
-    .then(
-        axios.spread((res1, res2) => {
-            console.log(res1.data.url);
-            console.log(res2.data.url);
-        })
-    )
-    .catch(error => {
-        console.error(error)
-    });
+const https = require('https')
+
+// https.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', (resp) => {
+//   let data = '';
+
+//   // A chunk of data has been recieved.
+//   resp.on('data', (chunk) => {
+//     data += chunk;
+//   });
+
+//   // The whole response has been received. Print out the result.
+//   resp.on('end', () => {
+//     console.log(JSON.parse(data).explanation);
+//   });
+
+// }).on("error", (err) => {
+//   console.log("Error: " + err.message);
+// });
 
 
+// // Request (should be installed)
+// // npm install request@2.81.0
+
+
+// const request = require('request');
+
+// request('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', { json: true }, (err, res, body) => {
+//   if (err) { return console.log(err); }
+//   console.log(body.url);
+//   console.log(body.explanation);
+// });
+
+
+// SUPERAGENT
+// you can set parameters, it is not necessary to do it manually
+const superagent = require('superagent');
+
+// superagent.get('https://api.nasa.gov/planetary/apod')
+// .query({ api_key: 'DEMO_KEY', date: '2017-08-02' })
+// .end((err, res) => {
+//   if (err) { return console.log(err); }
+//   console.log(res.body.url);
+//   console.log(res.body.explanation);
+// });
+
+const got = require('got');
+ 
+(async () => {
+    try {
+        const response = await got('https://sindresorhus.com');
+        console.log(response.body);
+        //=> '<!doctype html> ...'
+    } catch (error) {
+        console.log(error.response.body);
+        //=> 'Internal server error ...'
+    }
+})();

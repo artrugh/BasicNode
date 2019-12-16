@@ -1,4 +1,4 @@
-module.exports.prepareString = input => {
+exports.prepareString = input => {
 
     let result = input.map( cur => removeWhitespace(cur) )
 

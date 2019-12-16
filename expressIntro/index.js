@@ -9,6 +9,24 @@ const app = express();
 const logger = require("./middleware/logger");
 //app.use(logger);
 
+/** SETTING UP LOWDB */
+
+//const low = require('lowdb')
+//const FileSync = require('lowdb/adapters/FileSync')
+//const adapter = new FileSync("db.json");
+//const db = low(adapter);  // here is the problem
+
+// create default object
+// ATENTION this display a verbose nodemon
+
+// db.defaults({
+//     "members": [{
+//         id: 1,
+//         name: "Cybill Shepherd",
+//         email: "cs.outlook.de",
+//         status: "inactive"
+//     }]
+// }).write();
 
 // example getting the server and sending something to it
 // app.get("/", (req,res) =>{
@@ -25,7 +43,6 @@ const logger = require("./middleware/logger");
 // http://localhost:5000/index.html
 
 
-
 // // // Body parser middleware
 // // // add a new member
 // app.use(express.json()); // lets us use json
@@ -37,8 +54,9 @@ app.use(logger);
 app.use(express.json()); // lets us use json
 app.use(express.urlencoded({ extended: false })); // handles form submission
 
-app.use("/api/members", require("./routes/api/members"));
-
+/** ROUTERS */
+const members = require('./routes/api/members');
+app.use('/members', members)
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}.`));

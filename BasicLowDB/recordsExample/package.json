@@ -1,0 +1,28 @@
+{
+  "name": "basiclowdb",
+  "version": "1.0.0",
+  "description": "learning the basics of lowdb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artrugh/BasicNode.git"
+  },
+  "keywords": [
+    "node",
+    "lowdb",
+    "js",
+    "database"
+  ],
+  "author": "ArtRugh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/artrugh/BasicNode/issues"
+  },
+  "homepage": "https://github.com/artrugh/BasicNode#readme",
+  "dependencies": {
+    "lowdb": "^1.0.0"
+  }
+}

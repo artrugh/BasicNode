@@ -1,35 +1,21 @@
 const express = require("express");
 const router = express.Router();
-const uuid = require("uuid");
-const members = require("../../Members");
+
+// DB
+//const members = require("../../Members");
+const {getMembers} = require("../../controllers/membersControllers");
+const {findMember} = require("../../controllers/membersControllers");
+const {addMember} = require("../../controllers/membersControllers");
 
 // Gets all members
-router.get("/", (req, res) => {
-	res.json(members);
-});
-
+router.get("/", getMembers)
 // Gets single member
 // GET / localhost:5000/api/members/1 / SEND
 
-router.get("/:id", (req, res) => {
-	res.json(members.filter(member => member.id == req.params.id));
-});
+router.get("/:id", findMember)
 
 // Create member
-router.post("/", (req, res) => {
-	// res.send(req.body);
-	const newMember = {
-		id: uuid.v4(),
-		name: req.body.name,
-		email: req.body.email,
-		status: "active"
-	};
-	if (!newMember.name || !newMember.email) {
-		return res.status(400).json({ message: "Please include a name and email" });
-	}
-	members.push(newMember); // adds to our array
-	res.json(members); // sends
-});
+router.post("/", addMember);
 
 module.exports = router;
 
